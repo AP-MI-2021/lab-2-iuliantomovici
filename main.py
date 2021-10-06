@@ -63,11 +63,33 @@ def test_get_cmmmc():
     assert get_cmmmc([12,1,24])==24
     assert get_cmmmc([1,1,1])==1
 
+#Prblema 5
+def is_palindrome(n):
+    '''Verifica daca un numar este palindrom
+    :param: n: un numar intreg
+    :return: true daca numarul este palindrom si false in rest '''
+    aux=n
+    pal=0
+    while n>0:
+        ultima_cifra=n%10
+        pal=pal*10+ultima_cifra
+        n=n//10
+    if aux==pal:
+        return True
+    return False
+def test_is_palindrome():
+    assert is_palindrome(12321)==True
+    assert is_palindrome(1123) == False
+    assert is_palindrome(232) == True
+
+
+
 def meniu():
     print('''introduceti:
     1 pentru problema 1
     2 pentru problema 14
-    3 pentru a inchide''')
+    3 pentru problema 5
+    x pentru a inchide''')
 def interfata():
     numbers=[]
     while True:
@@ -87,6 +109,9 @@ def interfata():
                 numbers.append(elem)
             print(get_cmmmc(numbers))
         elif cmd=='3':
+            n=int(input("introduceti un numar posibil palindrom  "))
+            print(is_palindrome(n))
+        elif cmd=='x':
             break
         else:
             print('comanda invalida')
@@ -94,3 +119,4 @@ test_get_prim()
 test_get_largest_prime_below()
 test_get_cmmmc()
 interfata()
+test_is_palindrome()
