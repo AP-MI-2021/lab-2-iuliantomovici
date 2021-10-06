@@ -90,33 +90,40 @@ def meniu():
     2 pentru problema 14
     3 pentru problema 5
     x pentru a inchide''')
-def interfata():
-    numbers=[]
+
+def main():
+    # interfata de tip consola aici
+    test_get_prim()
+    test_get_largest_prime_below()
+    test_get_cmmmc()
+    test_is_palindrome()
+    numbers = []
     while True:
         meniu()
         cmd = input("Comanda:")
         if cmd == '1':
-            n=int(input("introduceti un numar intreg n"))
-            if n<=3:
-                print("nu exista niciun nr prim mai mic decat",n)
+            n = int(input("introduceti un numar intreg n"))
+            if n <= 3:
+                print("nu exista niciun nr prim mai mic decat", n)
             else:
-               print( get_largest_prime_below(n))
+                print(get_largest_prime_below(n))
 
-        elif cmd=='2':
-            n=int(input("pentru cate numere se va afisa cmmdc?"))
+        elif cmd == '2':
+            n = int(input("pentru cate numere se va afisa cmmdc?"))
             for x in range(n):
-                elem=int(input("introduceti un numar"))
+                elem = int(input("introduceti un numar"))
                 numbers.append(elem)
             print(get_cmmmc(numbers))
-        elif cmd=='3':
-            n=int(input("introduceti un numar posibil palindrom  "))
+        elif cmd == '3':
+            n = int(input("introduceti un numar posibil palindrom  "))
             print(is_palindrome(n))
-        elif cmd=='x':
+        elif cmd == 'x':
             break
         else:
             print('comanda invalida')
-test_get_prim()
-test_get_largest_prime_below()
-test_get_cmmmc()
-interfata()
-test_is_palindrome()
+
+if __name__ == '__main__':
+    main()
+
+
+
